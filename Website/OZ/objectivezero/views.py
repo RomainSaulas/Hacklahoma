@@ -9,13 +9,13 @@ def home(request):
     return render(request, 'home.html')
 	
 def about(request):
-    return render(request, 'home.html')
+    return render(request, 'about.html')
 	
 def legalInfo(request):
-    return render(request, 'home.html')
+    return render(request, 'legalInfo.html')
 	
 def signing(request):
-    return render(request, 'home.html')
+    return render(request, 'signing.html')
 
 def technologies(request):
     try:
@@ -29,10 +29,10 @@ def myAccount(request, id):
         user = User.objects.get(id = id)
     except User.DoesNotExist:
         raise Http404('User Not Found')
-    return render(request, 'home.html', {'user': user})
+    return render(request, 'myAccount.html', {'user': user})
 	
 def trading(request):
-    return render(request, 'home.html')
+    return render(request, 'trading.html')
 	
 def project(request):
-    return render(request, 'home.html')
+    return render(request, 'project.html')
