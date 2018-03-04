@@ -31,7 +31,7 @@ def myAccount(request, id):
         raise Http404('User Not Found')
     return render(request, 'myAccount.html', {'user': user})
 	
-def trading(request):
+def trading(request):		
 	return render(request, 'trading.html')
 	
 def wastes(request):
