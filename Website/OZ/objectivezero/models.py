@@ -29,8 +29,7 @@ class User(models.Model):
 class Waste(models.Model):
 	id = models.IntegerField(primary_key = True)
 	name = models.CharField(max_length=100)
-	estBuyingPrice = models.FloatField(max_length=15)
-	estSellingPrice = models.FloatField(max_length=15)
+	estPrice = models.FloatField(max_length=15)
 	recyclingScore = models.IntegerField()
 	
 	def __str__(self):
