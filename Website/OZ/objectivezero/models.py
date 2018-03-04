@@ -42,6 +42,7 @@ class Transaction(models.Model):
 	cost = models.FloatField(max_length=15)
 	
 class Technologies(models.Model):
+	name = models.CharField(max_length=50, null=True)
 	companyId = models.IntegerField()
 	wasteId = models.IntegerField()
 	isPatented = models.BooleanField()
@@ -52,3 +53,10 @@ class WastePricing(models.Model):
 	wasteId = models.IntegerField()
 	price = models.FloatField(max_length=15)
 	minQuantity = models.FloatField(null=True)
+	
+class Project(models.Model):
+	name = models.CharField(max_length=100)
+	description = models.TextField()
+	wasteId = models.IntegerField
+	bestCompanyId = models.IntegerField()
+	bestTechnologyDesc = models.TextField()

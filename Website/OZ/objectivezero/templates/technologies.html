@@ -3,11 +3,12 @@
 <div>
   {% if techs %}
     <p>Technologies available:</p>
-    <ul>
+    <dl>
       {% for tech in techs %}
-        <li>{{ tech.isPatented }}</li>
+        <dt>{{ tech.name}}</dt>
+			<dd>{{ tech.description }}</dd>
       {% endfor %}
-    </ul>
+    </dl>
   {% endif %}
 </div>
 {% endblock %}

@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import Http404
 
-from .models import Technologies
-from .models import User
+
+from .models import Technologies, Waste, Transaction, Company
 
 def home(request):
     return render(request, 'home.html')
@@ -32,7 +32,15 @@ def myAccount(request, id):
     return render(request, 'myAccount.html', {'user': user})
 	
 def trading(request):
-    return render(request, 'trading.html')
+	return render(request, 'trading.html')
+	
+def wastes(request):
+    try:
+        wastes = Waste.objects.all()
+    except Waste.DoesNotExist:
+        raise Http404('No Wastes Available Now')
+    return render(request, 'wastes.html', {'wastes': wastes})
+	
 	
 def project(request):
     return render(request, 'project.html')

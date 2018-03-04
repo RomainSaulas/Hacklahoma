@@ -1,0 +1,61 @@
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+p {
+  font-weight: 400;
+}
+
+/* home style */
+.home-navbar {
+    min-height: 5rem;
+    background-color: #27ae60;
+}
+
+.home-navbar-nav .nav-link.active {
+  color: #fff !important;
+  border-bottom-color: #fff;
+}
+
+.home-navbar-nav  .nav-link {
+  border-bottom: .25rem solid transparent;
+  font-size: 1rem;
+}
+
+.home-navbar-nav  .nav-link:hover {
+  color: #fff !important;
+  border-bottom: .25rem solid #transparent;
+}
+
+.objective-zero-logo {
+  max-height: 1.5rem;
+  margin-right: 1rem;
+}
+
+.oz-logo {
+  padding-bottom: 5rem;
+}
+/* home style end */
+
+/* project style */
+.project-item {
+  position: relative;
+  margin: 1rem;
+  padding: 1rem;
+  border: solid #1abc9c;
+      border-top-width: medium;
+      border-right-width: medium;
+      border-bottom-width: medium;
+      border-left-width: medium;
+  border-width: .2rem .2rem .2rem;
+  border-radius: 1rem;
+  background-color: #16a085;
+  color: #fff
+}
+
+.project-item-detail {
+  color: #2c3e50;
+}
+
+/* project style end */

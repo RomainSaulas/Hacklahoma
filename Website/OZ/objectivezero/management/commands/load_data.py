@@ -51,6 +51,7 @@ class Command(BaseCommand):
 			transaction.wasteId = row['wid']
 			transaction.cost = row['cost']
 			transaction.save()
+			technologies.name = row['Tname']
 			technologies.companyId = row['Tcid']
 			technologies.wasteId = row['Twid']
 			technologies.isPatented = row['Patent']

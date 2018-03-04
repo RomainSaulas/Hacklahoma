@@ -25,7 +25,8 @@ urlpatterns = [
 	url(r'^technologies/', views.technologies, name='technologies'),
 	url(r'^legalInfo/', views.legalInfo, name='legalInfo'),
     url(r'^signIn/', views.signing, name='signing'),
-    url(r'^signIn/account/', views.myAccount, name='account'),
-	url(r'^signIn/trading/', views.trading, name='trading'),
-	url(r'^signIn/project/', views.project, name='project'),
+    url(r'^account/', views.myAccount, name='account'),
+	url(r'^trading/', views.trading, name='trading'),
+	url(r'^project/', views.project, name='project'),
+	url(r'^wastes/', views.wastes, name='wastes'),
 ]

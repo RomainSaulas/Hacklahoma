@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+  {% if wastes %}
+    <p>Wastes considered for recycling:</p>
+    <dl>
+      {% for w in wastes %}
+        <dt>{{ w.name}}</dt>
+			<dd>The estimated selling price per unit is : {{ w.estPrice }}</dd>
+      {% endfor %}
+    </dl>
+  {% endif %}
+</div>
+{% endblock %}
