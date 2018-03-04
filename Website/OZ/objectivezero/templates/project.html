@@ -4,39 +4,40 @@
   <!-- Projects page -->
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-3 project-item">
-          <h5>Project1</h5>
-          <dl>
-            <dt>Description:
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vivamus fringilla justo vel orci vestibulum, at varius orci dignissim.
-            </dt>
-          </dl>
-          <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
-            expand
-          </button>
+        {% for p in projects %}
+			<div class="col-sm-3 project-item">
+			  <h5>{{p.name}}</h5>
+			  <dl>
+				<dt>Description:
+				  <p>{p.description}}</p>
+				</dt>
+			  </dl>
+			  <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
+				expand
+			  </button>
 
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="ProjectModalLabel" aria-hidden="true">
-            <div class="modal-dialog project-item-detail" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="ProjectModalLabel">Project1</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  ...
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+			  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="ProjectModalLabel" aria-hidden="true">
+				<div class="modal-dialog project-item-detail" role="document">
+				  <div class="modal-content">
+					<div class="modal-header">
+					  <h5 class="modal-title" id="ProjectModalLabel">{{p.name}}</h5>
+					  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					  </button>
+					</div>
+					<div class="modal-body">
+					  ...
+					</div>
+					<div class="modal-footer">
+					  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					  <button type="submit" class="btn btn-primary">Save changes</button>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		{% endfor %}
+		
 
         <div>
           <button type="button" class="project-item-new btn" data-toggle="modal" data-target="#newProjectModal">
@@ -53,30 +54,30 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <form>
+                  <form  name="form" action = "." method = "post">{% csrf_token %}
                     <div class="form-group">
                       <label for="exampleFormControlInput1">Project name</label>
-                      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="New Project">
+                      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="New Project" name="name">
                     </div>
+					<!--
                     <div class="form-group">
                       <label for="exampleFormControlTextarea1">Description</label>
-                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name = "description"></textarea>
                     </div>
                     <div class="form-group">
                       <label for="exampleFormControlSelect2">Select a Waste</label>
-                      <select multiple class="form-control" id="exampleFormControlSelect2">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                      <select multiple class="form-control" id="exampleFormControlSelect2" name = "wasteName">
+					  {% for w in wastes %}
+						<option>{{w.name}}</option>
+                      {% endfor %}
                       </select>
                     </div>
+					-->
                   </form>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
+                  <button value = "submit" type="submit" class="btn btn-primary">Save changes</button>
                 </div>
               </div>
             </div>

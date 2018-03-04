@@ -57,6 +57,6 @@ class WastePricing(models.Model):
 class Project(models.Model):
 	name = models.CharField(max_length=100)
 	description = models.TextField()
-	wasteId = models.IntegerField
-	bestCompanyId = models.IntegerField()
-	bestTechnologyDesc = models.TextField()
+	wasteName = models.CharField(max_length=100, null = True)
+	bestCompanyId = models.IntegerField(null = True)
+	bestTechnologyDesc = models.TextField(null = True)

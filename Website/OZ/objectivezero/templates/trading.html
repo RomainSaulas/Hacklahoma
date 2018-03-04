@@ -1,6 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 <div>
-    <p>Will soon display a nice vizualization</p>
+    <p>Possible Transaction:</p>
+    <dl>
+    {% for cp in company %}
+		<dd>{{ cp.name }} is likely to trade with:
+		{% for tr in trans %}
+			{% if tr.sellingCompanyId == cp.id %}
+				{{tr.buyingCompanyId}}
+			{% endif %}
+		{% endfor %}</dd>
+	{% endfor %}
+    </dl>
 </div>
 {% endblock %}

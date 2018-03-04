@@ -2,7 +2,7 @@ from csv import DictReader
 
 from django.core.management import BaseCommand
 
-from objectivezero.models import Company, User, Waste, Transaction, Technologies, WastePricing
+from objectivezero.models import Company, User, Waste, Transaction, Technologies, WastePricing, Project
 
 
 ALREADY_LOADED_ERROR_MESSAGE = """
@@ -27,6 +27,7 @@ class Command(BaseCommand):
 			transaction = Transaction()
 			technologies = Technologies()
 			wastepricing = WastePricing()
+			project = Project()
 			company.id = row['Cid']
 			company.name = row['Cname']
 			company.country = row['Country']
@@ -62,4 +63,9 @@ class Command(BaseCommand):
 			wastepricing.price = row['Price']
 			wastepricing.minQuantity = row['MinQuantity']
 			wastepricing.save()
+			project.name = row['pName']
+			project.description = row['pDesc']
+			project.wasteName = row['wName']
+			project.bestCompanyId = row['BCId']
+			project.bestTechnologyDesc = row['BTDesc']
         

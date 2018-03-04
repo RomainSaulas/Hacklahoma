@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.http import Http404
 
 
-from .models import Technologies, Waste, Transaction, Company
+from .models import Technologies, Waste, Transaction, Company, Project, WastePricing
 
 def home(request):
     return render(request, 'home.html')
@@ -32,15 +32,32 @@ def myAccount(request, id):
     return render(request, 'myAccount.html', {'user': user})
 	
 def trading(request):		
-	return render(request, 'trading.html')
+	return render(request, 'trading.html', {'trans': Transaction.objects.all(), 'company': Company.objects.all()})
 	
 def wastes(request):
     try:
         wastes = Waste.objects.all()
     except Waste.DoesNotExist:
         raise Http404('No Wastes Available Now')
-    return render(request, 'wastes.html', {'wastes': wastes})
+    return render(request, 'wastes.html', {'wastes': wastes})	
 	
-	
-def project(request):
-    return render(request, 'project.html')
+def projects(request):
+	# for proj in Project.objects.all():
+		# try:
+			# offers = WastePricing.objects.get(name = proj.wasteName)
+			# min = 0
+			# for offer in offers:
+				# if offer.price > min:
+					# min = offer.price
+			# proj.bestCompanyId = WastePricing.objects.get(price = min).companyId
+		# except Company.DoesNotExist :
+			# raise Http404('No specific company associated to this type of waste')
+		# try:
+			# wId = Waste.object.get(name = proj.wasteName).id
+			# tech = Technologies.object.get(companyId = proj.bestCompanyId)
+			# tech = tech.get(wasteId = wId)
+			# proj.bestTechnologyDesc = tech.description
+		# except Technologies.DoesNotExist :
+			# raise Http404('No specific technology associated to this type of waste')
+		# proj.save()
+	return render(request, 'projects.html', {'projects': Project.objects.all()})

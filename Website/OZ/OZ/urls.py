@@ -27,6 +27,6 @@ urlpatterns = [
     url(r'^signIn/', views.signing, name='signing'),
     url(r'^account/', views.myAccount, name='account'),
 	url(r'^trading/', views.trading, name='trading'),
-	url(r'^project/', views.project, name='project'),
+	url(r'^projects/', views.projects, name='projects'),
 	url(r'^wastes/', views.wastes, name='wastes'),
 ]

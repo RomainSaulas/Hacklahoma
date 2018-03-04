@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+  {% if projects %}
+    <p>Current projects:</p>
+    <dl>
+      {% for proj in projects %}
+        <dt>{{ proj.name}}</dt>
+			<dd>{{ proj.description }}</dd>
+			<!-- {% if proj.bestCompanyId %}
+				<dd> Can be sponsorised by company: {{proj.bestCompanyId}} </dd>
+			{% endif %}
+			{% if proj.bestTechnologyDesc %}
+				<dd> Can utilize the following technology: {{proj.bestTechnologyDesc}} </dd>
+			{% endif %} -->
+      {% endfor %}
+    </dl>
+  {% endif %}
+</div>
+{% endblock %}
