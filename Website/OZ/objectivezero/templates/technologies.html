@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+  {% if techs.all %}
+    <p>Technologies available:</p>
+    <ul>
+      {% for tech in techs.all %}
+        <li>{{ tech.isPatented }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</div>
+{% endblock %}
